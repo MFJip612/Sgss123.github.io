@@ -76,3 +76,7 @@ This policy may change due to service adjustments or legal requirements. Signifi
 
 ## 9. Contact
 If you have questions regarding this policy or data handling, use the contact channels provided (e.g. repository issues, message channels). If no direct method is listed, you may open an issue in the public repository.
+
+:::tip
+This document is a Chinese translation. If there is any conflict between the Japanese or English version and the Chinese version, the Chinese version shall prevail.
+:::
