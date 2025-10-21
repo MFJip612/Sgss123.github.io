@@ -1,6 +1,6 @@
 +++
 date = '2025-10-21T12:02:37+08:00'
-draft = true
+draft = false
 title = 'Vue Messagebox'
 slug = 'vue-messagebox'
 lang = 'zh'
