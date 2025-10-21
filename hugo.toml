@@ -53,12 +53,12 @@ theme = 'ananke'
       
     [[languages.en.menu.main]]
       name = 'Home'
-      url = '/'
+      url = '/en/'
       weight = 10
       
     [[languages.en.menu.main]]
       name = 'About'
-      url = '/about/'
+      url = '/en/about/'
       weight = 20
 
   [languages.ja]
@@ -74,10 +74,10 @@ theme = 'ananke'
       
     [[languages.ja.menu.main]]
       name = 'トップページ'
-      url = '/'
+      url = '/ja/'
       weight = 10
       
     [[languages.ja.menu.main]]
       name = 'について'
-      url = '/about/'
+      url = '/ja/about/'
       weight = 20
