@@ -2,7 +2,7 @@
 date = '2025-10-21T12:02:37+08:00'
 draft = false
 title = '使用Vue封装一个弹窗组件'
-slug = 'vue-messagebox'
+translationKey = 'vue-messagebox'
 lang = 'zh'
 +++
 

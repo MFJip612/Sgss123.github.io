@@ -45,7 +45,7 @@ theme = 'ananke'
     languageName = 'English'
     languageDirection = 'ltr'
     title = "MFJip' s blog"
-    weight = 2
+    weight = 3
     
     [languages.en.params]
       description = 'This is the description of my English website'
