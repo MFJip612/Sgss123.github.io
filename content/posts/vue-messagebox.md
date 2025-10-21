@@ -10,7 +10,7 @@ lang = 'zh'
 
 组件式
 
-```vue 组件式封装
+```vue
 <template>
     <div id="modal">
         <div id="box">
