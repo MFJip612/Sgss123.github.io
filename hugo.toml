@@ -1,0 +1,80 @@
+baseURL = 'https://www.waterspo.top/'
+defaultContentLanguage = 'zh'
+defaultContentLanguageInSubdir = true
+enableMissingTranslationPlaceholders = true
+languageCode = 'zh-CN'
+theme = 'ananke'
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+[params]
+  math = true
+
+[languages]
+  [languages.zh]
+    languageName = '简体中文'
+    languageDirection = 'ltr'
+    title = 'MFJip的博客'
+    weight = 1
+    disabled = false
+    
+    # 自定义参数
+    [languages.zh.params]
+      description = 'MFJip的博客'
+      author = 'MFJip'
+      
+    # 菜单配置
+    [[languages.zh.menu.main]]
+      name = '首页'
+      url = '/'
+      weight = 10
+      
+    [[languages.zh.menu.main]]
+      name = '关于'
+      url = '/about/'
+      weight = 20
+      
+  [languages.en]
+    languageName = 'English'
+    languageDirection = 'ltr'
+    title = "MFJip' s blog"
+    weight = 2
+    
+    [languages.en.params]
+      description = 'This is the description of my English website'
+      author = 'MFJip'
+      
+    [[languages.en.menu.main]]
+      name = 'Home'
+      url = '/'
+      weight = 10
+      
+    [[languages.en.menu.main]]
+      name = 'About'
+      url = '/about/'
+      weight = 20
+
+  [languages.ja]
+    languageName = '日本語'
+    languageDirection = 'ltr'
+    title = 'MFJipのブログ'
+    weight = 2
+    
+    [languages.ja.params]
+      description = 'This is the description of my English website'
+      author = 'MFJip'
+      
+    [[languages.ja.menu.main]]
+      name = 'トップページ'
+      url = '/'
+      weight = 10
+      
+    [[languages.ja.menu.main]]
+      name = 'について'
+      url = '/about/'
+      weight = 20
