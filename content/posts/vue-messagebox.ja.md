@@ -1,7 +1,7 @@
 +++
 date = '2025-10-21T12:02:37+08:00'
 draft = false
-title = 'Vue Messagebox'
+title = 'Vueを使用してポップアップコンポーネントをカプセル化する'
 slug = 'vue-messagebox'
 lang = 'ja'
 +++

@@ -9,7 +9,7 @@
     <lastBuildDate>Tue, 21 Oct 2025 12:02:37 +0800</lastBuildDate>
     <atom:link href="http://localhost:1763/zh/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Vue Messagebox</title>
+      <title>使用Vue封装一个弹窗组件</title>
       <link>http://localhost:1763/zh/posts/vue-messagebox/</link>
       <pubDate>Tue, 21 Oct 2025 12:02:37 +0800</pubDate>
       <guid>http://localhost:1763/zh/posts/vue-messagebox/</guid>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Vue Messagebox | MFJipのブログ</title>
+    <title>Vueを使用してポップアップコンポーネントをカプセル化する | MFJipのブログ</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。
 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
@@ -87,7 +87,7 @@ const clickHandler = () =&gt; {
 
     <meta property="og:url" content="http://localhost:1763/ja/posts/vue-messagebox/">
   <meta property="og:site_name" content="MFJipのブログ">
-  <meta property="og:title" content="Vue Messagebox">
+  <meta property="og:title" content="Vueを使用してポップアップコンポーネントをカプセル化する">
   <meta property="og:description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
 &lt;template&gt; &lt;div id=&#34;modal&#34;&gt; &lt;div id=&#34;box&#34;&gt; &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt; &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import Button from &#34;~/components/Button.vue&#34;; const emit = defineEmits([&#39;click&#39;]); defineProps({ msg:{ type:String, required:true } }) &lt;/script&gt; &lt;style scoped&gt; .modal{ ... } .box{ ... } .text{ ... } &lt;/style&gt; 開発は非常にシンプルに見えます。使い方を見てみましょう。
 &lt;!-- App.vue --&gt; &lt;template&gt; &lt;div&gt; &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt; &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import { ref } from &#39;vue&#39;; import Button from &#34;~/components/Button.vue&#34;; import MessageBox from &#34;~/components/MessageBox.vue&#34;; const showMsg=ref(false); const msg=ref(&#39;プロンプトメッセージ&#39;); const clickHandler = () =&gt; { showMsg.value=!showMsg.value }; &lt;/script&gt; コンポーネントの呼び出しはかなり面倒に思えます。">
@@ -97,7 +97,7 @@ const clickHandler = () =&gt; {
     <meta property="article:published_time" content="2025-10-21T12:02:37+08:00">
     <meta property="article:modified_time" content="2025-10-21T12:02:37+08:00">
 
-  <meta itemprop="name" content="Vue Messagebox">
+  <meta itemprop="name" content="Vueを使用してポップアップコンポーネントをカプセル化する">
   <meta itemprop="description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
 &lt;template&gt; &lt;div id=&#34;modal&#34;&gt; &lt;div id=&#34;box&#34;&gt; &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt; &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import Button from &#34;~/components/Button.vue&#34;; const emit = defineEmits([&#39;click&#39;]); defineProps({ msg:{ type:String, required:true } }) &lt;/script&gt; &lt;style scoped&gt; .modal{ ... } .box{ ... } .text{ ... } &lt;/style&gt; 開発は非常にシンプルに見えます。使い方を見てみましょう。
 &lt;!-- App.vue --&gt; &lt;template&gt; &lt;div&gt; &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt; &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import { ref } from &#39;vue&#39;; import Button from &#34;~/components/Button.vue&#34;; import MessageBox from &#34;~/components/MessageBox.vue&#34;; const showMsg=ref(false); const msg=ref(&#39;プロンプトメッセージ&#39;); const clickHandler = () =&gt; { showMsg.value=!showMsg.value }; &lt;/script&gt; コンポーネントの呼び出しはかなり面倒に思えます。">
@@ -105,7 +105,7 @@ const clickHandler = () =&gt; {
   <meta itemprop="dateModified" content="2025-10-21T12:02:37+08:00">
   <meta itemprop="wordCount" content="682">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Vue Messagebox">
+  <meta name="twitter:title" content="Vueを使用してポップアップコンポーネントをカプセル化する">
   <meta name="twitter:description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
 &lt;template&gt; &lt;div id=&#34;modal&#34;&gt; &lt;div id=&#34;box&#34;&gt; &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt; &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import Button from &#34;~/components/Button.vue&#34;; const emit = defineEmits([&#39;click&#39;]); defineProps({ msg:{ type:String, required:true } }) &lt;/script&gt; &lt;style scoped&gt; .modal{ ... } .box{ ... } .text{ ... } &lt;/style&gt; 開発は非常にシンプルに見えます。使い方を見てみましょう。
 &lt;!-- App.vue --&gt; &lt;template&gt; &lt;div&gt; &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt; &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import { ref } from &#39;vue&#39;; import Button from &#34;~/components/Button.vue&#34;; import MessageBox from &#34;~/components/MessageBox.vue&#34;; const showMsg=ref(false); const msg=ref(&#39;プロンプトメッセージ&#39;); const clickHandler = () =&gt; { showMsg.value=!showMsg.value }; &lt;/script&gt; コンポーネントの呼び出しはかなり面倒に思えます。">
@@ -176,7 +176,7 @@ const clickHandler = () =&gt; {
           
         Posts
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
-<h1 class="f1 athelas mt3 mb1">Vue Messagebox</h1>
+<h1 class="f1 athelas mt3 mb1">Vueを使用してポップアップコンポーネントをカプセル化する</h1>
       
       <p class="tracked"><strong>MFJip</strong>
       </p>
