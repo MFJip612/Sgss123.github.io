@@ -1,68 +1,26 @@
 ---
-// import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
-import AboutHeroImage from "../assets/images/avatar.jpg";
-import Layout from "../layouts/BlogPost.astro";
+import { getEntry, render } from "astro:content";
+import Markdown from "@components/misc/Markdown.astro";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+
+const aboutPost = await getEntry("spec", "about");
+
+if (!aboutPost) {
+	throw new Error("About page content not found");
+}
+
+const { Content } = await render(aboutPost);
 ---
 
-<Layout
-	title="About Me"
-	description="Tell you about myself"
-	pubDate={new Date("August 01 2025")}
-	heroImage={AboutHeroImage}>
-	<p>
-		I am MFJip, a student from China. Currently, I am studying C++, Python,
-		and Rust. I love programming and learning new things. My hobby is
-		Tokusatsu movie about Ultraman. So in order to enjoy many more Tokusatsu
-		movies, I am learning Japanese now.
-	</p>
-
-	<!-- <p>
-		我是 MFJip，中国的一名学生。目前我正在学习C++，Python 以及 Rust
-		语言。我喜欢编程和新的事物。我最喜欢看的是奥特曼系列特摄剧，为了这个，目前我正在学习日语。
-	</p>
-
-	<p>
-		私は MFJip、中国の学生です。現在、C++、Python、および Rust
-		を学んでいます。プログラミングと新しいことを学ぶのが好きです。私の趣味はウルトラマンに関する特撮
-		映画です。もっと多くの特撮映画を楽しむために、今は日本語を学んでいます。
-	</p> -->
-
-	<p>
-		If you want to make friends with me, you can contact me via
-		<ul>
-			<li><a href="https://twitter.com/Sgss740417">Twitter</a></li>
-			<li><a href="mailto://sgsssvn@gmail.com">Email</a></li>
-			<li>QQ: 2269718601</li>
-			<!-- <li>
-				PostCard/QSL Card: No. 26-4 Yongxing Street, Nanhuaxi Street, Haizhu District, Guangzhou City, Guangdong Province, China。
-				PostCode: 510250
-			</li> -->
-		</ul>
-	</p>
-
-	<!-- <p>
-		如果你有与我联系的想法，不管出于任何目的，都欢迎通过
-		<ul>
-			<li><a href="https://twitter.com/Sgss740417">推特</a></li>
-			<li><a href="mailto://sgsssvn@gmail.com">电子邮箱</a></li>
-			<li>QQ: 2269718601</li>
-			<li>
-				寄信/QSL卡片: 广东省广州市海珠区南华西街道永兴街 26 号之四，邮编510250
-			</li>
-		</ul>
-		联系我。
-	</p>
-
-	<p>
-		私と友達になりたい場合は、以下の方法で連絡できます。
-		<ul>
-			<li><a href="https://twitter.com/Sgss740417">Twitter</a></li>
-			<li><a href="mailto://sgsssvn@gmail.com">メール</a></li>
-			<li>QQ: 2269718601</li>
-			<li>
-				郵便カード/QSLカード: 中国広東省広州市海珠区南華西街道永興街 26
-				号之四、郵便番号: 510250
-			</li>
-		</ul>
-	</p> -->
-</Layout>
+<MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
+    <div
+        class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+            <Markdown class="mt-2">
+                <Content />
+            </Markdown>
+        </div>
+    </div>
+</MainGridLayout>
