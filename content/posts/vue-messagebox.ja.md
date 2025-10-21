@@ -1,6 +1,6 @@
 +++
 date = '2025-10-21T12:02:37+08:00'
-draft = true
+draft = false
 title = 'Vue Messagebox'
 slug = 'vue-messagebox'
 lang = 'ja'
@@ -88,14 +88,13 @@ const clickHandler = () => {
 };
 </script>
 ```
+関数を少し変更してみましょう。
 
-稍作修改
+変更後、開発はより複雑になります。
 
-这样过后 开发就不会那么容易了。
+ただし、これは**一般的な機能**なので、開発コストをあまり考慮する必要はありません。
 
-但是，这是**通用型的功能**，因此不用太多地考虑开发成本。
-
-所以在js文件里定义一个函数
+jsファイルで関数を定義します
 
 ```javascript
 // ~/commons/showMsg.js
@@ -105,7 +104,7 @@ function showMsg() {
 export default showMsg;
 ```
 
-在函数里接受两个参数，一个是消息内容，另一个是事件.
+この関数は 2 つのパラメータを受け入れます。1 つはメッセージの内容、もう 1 つはイベントです。
 
 ```diff
 // ~/commons/showMsg.js
@@ -117,9 +116,9 @@ export default showMsg;
 export default showMsg;
 ```
 
-这个方法是为了渲染MessageBox。
+この関数は、`MessageBox` をレンダリングするために使用されます。
 
-导入刚才的MessageBox.vue
+`MessageBox.vue`ファイルをインポートします。
 
 ```diff
 // ~/commons/showMsg.js
@@ -130,9 +129,9 @@ function showMsg(msg,clickHandler) {
 export default showMsg;
 ```
 
-怎么渲染呢？
+どのようにレンダリングされるのでしょうか？
 
-我们看看Vue怎么渲染的
+`Vue` がどのようにレンダリングされるか見てみましょう。
 
 ```javascript
 // main.js
@@ -144,9 +143,9 @@ const app = createApp(App)
 app.mount('#app')
 ```
 
-创建一个Vue的实例，把组件传进去，再挂载到页面上的某个区域。
+Vue インスタンスを作成し、コンポーネントを渡して、ページ上のどこかにマウントします。
 
-所以我们把这个事情也做一遍。
+だからまたこれをやるんです。
 
 ```diff
 // ~/commons/showMsg.js
@@ -159,7 +158,7 @@ function showMsg(msg,clickHandler) {
 export default showMsg;
 ```
 
-但是app已经被主页面挂载了，所以我们要换一个。
+ただし、id が app の div がメイン ページにマウントされているため、これを変更する必要があります。
 
 ```diff
 // ~/commons/showMsg.js
@@ -175,9 +174,9 @@ function showMsg(msg,clickHandler) {
 export default showMsg;
 ```
 
-刷新页面，发现弹窗已经出来了，但是没有内容。
+ページを更新すると、ポップアップ ウィンドウが表示されますが、コンテンツがないことがわかります。
 
-所以现在我们要接受两个属性
+そこで、2つのプロパティを受け入れる必要があります。
 
 ```diff
 // ~/commons/showMsg.js
@@ -202,9 +201,9 @@ function showMsg(msg,clickHandler) {
 export default showMsg;
 ```
 
-完事
+完了です。
 
-现在我们使用方法就可以调用了
+これでメソッドを呼び出すことができます。
 
 ```vue
 <!-- App.vue -->
@@ -221,9 +220,9 @@ const clickHandler = () => {
 </script>
 ```
 
-目前这种写法并不是很好，因为他拆开成了几个文件`showMsg.js`和`MessageBox.js`。
+現在、このアプローチは `showMsg.js` と `MessageBox.js` という複数のファイルに分割されているため、あまり適していません。
 
-所以我们要合并成一个文件。
+したがって、それらを 1 つのファイルに結合する必要があります。
 
 ```diff
 // ~/commons/showMsg.js
@@ -269,9 +268,9 @@ function showMsg(msg,clickHandler) {
 export default showMsg;
 ```
 
-接下来就是添加样式。
+次のステップはスタイルを追加することです。
 
-这里使用`@styils/vue`
+ここでは `@styils/vue` が使用されています
 
 ```bash
 $ npm instll @styils/vue
@@ -284,7 +283,7 @@ $ npm instll @styils/vue
 import { styled } from "@styils/vue";
 ```
 
-写样式
+CSSコードの記述
 
 ```javascript
 // showMsg.js
@@ -299,9 +298,9 @@ const DivText = styled('div', {
 });
 ```
 
-注意带横线的样式转换为驼峰写法。
+`-` を含むスタイルは camelCase に変換されることに注意してください。
 
-修改显示
+表示の変更
 
 ```diff
 // showMsg.js
@@ -327,7 +326,7 @@ const DivText = styled('div', {
 ...
 ```
 
-最终文件
+最終文書
 
 ```javascript
 // showMsg.js

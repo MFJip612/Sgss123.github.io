@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1763&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Vue Messagebox | MFJipのブログ</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。
+ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
+&lt;template&gt;
+    &lt;div id=&#34;modal&#34;&gt;
+        &lt;div id=&#34;box&#34;&gt;
+            &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt;
+            &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import Button from &#34;~/components/Button.vue&#34;;
+const emit = defineEmits([&#39;click&#39;]);
+defineProps({
+    msg:{
+        type:String,
+        required:true
+    }
+})
+&lt;/script&gt;
+&lt;style scoped&gt;
+.modal{
+    ...
+}
+.box{
+    ...
+}
+.text{
+    ...
+}
+&lt;/style&gt;
+開発は非常にシンプルに見えます。使い方を見てみましょう。
+&lt;!-- App.vue --&gt;
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt;
+        &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { ref } from &#39;vue&#39;;
+import Button from &#34;~/components/Button.vue&#34;;
+import MessageBox from &#34;~/components/MessageBox.vue&#34;;
+const showMsg=ref(false);
+const msg=ref(&#39;プロンプトメッセージ&#39;);
+const clickHandler = () =&gt; {
+    showMsg.value=!showMsg.value
+};
+&lt;/script&gt;
+コンポーネントの呼び出しはかなり面倒に思えます。">
+    <meta name="generator" content="Hugo 0.149.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="MFJip">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1763/ja/posts/vue-messagebox/">
+    
+
+    <meta property="og:url" content="http://localhost:1763/ja/posts/vue-messagebox/">
+  <meta property="og:site_name" content="MFJipのブログ">
+  <meta property="og:title" content="Vue Messagebox">
+  <meta property="og:description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
+&lt;template&gt; &lt;div id=&#34;modal&#34;&gt; &lt;div id=&#34;box&#34;&gt; &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt; &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import Button from &#34;~/components/Button.vue&#34;; const emit = defineEmits([&#39;click&#39;]); defineProps({ msg:{ type:String, required:true } }) &lt;/script&gt; &lt;style scoped&gt; .modal{ ... } .box{ ... } .text{ ... } &lt;/style&gt; 開発は非常にシンプルに見えます。使い方を見てみましょう。
+&lt;!-- App.vue --&gt; &lt;template&gt; &lt;div&gt; &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt; &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import { ref } from &#39;vue&#39;; import Button from &#34;~/components/Button.vue&#34;; import MessageBox from &#34;~/components/MessageBox.vue&#34;; const showMsg=ref(false); const msg=ref(&#39;プロンプトメッセージ&#39;); const clickHandler = () =&gt; { showMsg.value=!showMsg.value }; &lt;/script&gt; コンポーネントの呼び出しはかなり面倒に思えます。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-21T12:02:37+08:00">
+    <meta property="article:modified_time" content="2025-10-21T12:02:37+08:00">
+
+  <meta itemprop="name" content="Vue Messagebox">
+  <meta itemprop="description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
+&lt;template&gt; &lt;div id=&#34;modal&#34;&gt; &lt;div id=&#34;box&#34;&gt; &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt; &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import Button from &#34;~/components/Button.vue&#34;; const emit = defineEmits([&#39;click&#39;]); defineProps({ msg:{ type:String, required:true } }) &lt;/script&gt; &lt;style scoped&gt; .modal{ ... } .box{ ... } .text{ ... } &lt;/style&gt; 開発は非常にシンプルに見えます。使い方を見てみましょう。
+&lt;!-- App.vue --&gt; &lt;template&gt; &lt;div&gt; &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt; &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import { ref } from &#39;vue&#39;; import Button from &#34;~/components/Button.vue&#34;; import MessageBox from &#34;~/components/MessageBox.vue&#34;; const showMsg=ref(false); const msg=ref(&#39;プロンプトメッセージ&#39;); const clickHandler = () =&gt; { showMsg.value=!showMsg.value }; &lt;/script&gt; コンポーネントの呼び出しはかなり面倒に思えます。">
+  <meta itemprop="datePublished" content="2025-10-21T12:02:37+08:00">
+  <meta itemprop="dateModified" content="2025-10-21T12:02:37+08:00">
+  <meta itemprop="wordCount" content="682">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vue Messagebox">
+  <meta name="twitter:description" content="注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。 ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。
+&lt;template&gt; &lt;div id=&#34;modal&#34;&gt; &lt;div id=&#34;box&#34;&gt; &lt;div id=&#34;text&#34;&gt;{{ msg }}&lt;/div&gt; &lt;Button @click=&#34;emit(&#39;click&#39;)&#34;&gt;&lt;/Button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import Button from &#34;~/components/Button.vue&#34;; const emit = defineEmits([&#39;click&#39;]); defineProps({ msg:{ type:String, required:true } }) &lt;/script&gt; &lt;style scoped&gt; .modal{ ... } .box{ ... } .text{ ... } &lt;/style&gt; 開発は非常にシンプルに見えます。使い方を見てみましょう。
+&lt;!-- App.vue --&gt; &lt;template&gt; &lt;div&gt; &lt;Button @click=&#34;clickHandler&#34;&gt;ポップアップを表示&lt;/Button&gt; &lt;MessageBox v-if=&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;&gt;&lt;/MessageBox&gt; &lt;/div&gt; &lt;/template&gt; &lt;script setup&gt; import { ref } from &#39;vue&#39;; import Button from &#34;~/components/Button.vue&#34;; import MessageBox from &#34;~/components/MessageBox.vue&#34;; const showMsg=ref(false); const msg=ref(&#39;プロンプトメッセージ&#39;); const clickHandler = () =&gt; { showMsg.value=!showMsg.value }; &lt;/script&gt; コンポーネントの呼び出しはかなり面倒に思えます。">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/ja/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        MFJipのブログ
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4>[i18n] translations</h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white white-90 no-underline" href="/zh/posts/vue-messagebox/">zh</a>
+    </li>
+    
+</ul>
+
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/" title="トップページ ページ">
+              トップページ
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/about/" title="について ページ">
+              について
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Vue Messagebox</h1>
+      
+      <p class="tracked"><strong>MFJip</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-10-21T12:02:37+08:00">10月 21, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="注この記事は中国語から翻訳されています相違点がある場合は中国語版をご覧ください">注：この記事は中国語から翻訳されています。相違点がある場合は、中国語版をご覧ください。</h3>
+<p>ポップアップウィンドウは、様々なシナリオで活用できる汎用的な機能です。一度開発するだけで何度も使用されるため、利用コストは重要です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;box&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>&gt;{{ <span style="color:#a6e22e">msg</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">Button</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;emit(&#39;click&#39;)&#34;</span>&gt;&lt;/<span style="color:#f92672">Button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Button</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;~/components/Button.vue&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">emit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineEmits</span>([<span style="color:#e6db74">&#39;click&#39;</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span>String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">modal</span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">box</span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">text</span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>開発は非常にシンプルに見えます。使い方を見てみましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">vue</span> <span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Button</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;clickHandler&#34;</span>&gt;<span style="color:#a6e22e">ポップアップを表示</span>&lt;/<span style="color:#f92672">Button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">MessageBox</span> <span style="color:#f92672">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;showMsg&#34; :msg=&#34;msg&#34; @click=&#34;clickHandler&#34;</span>&gt;&lt;/<span style="color:#f92672">MessageBox</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Button</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;~/components/Button.vue&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MessageBox</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;~/components/MessageBox.vue&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">showMsg</span><span style="color:#f92672">=</span><span style="color:#a6e22e">ref</span>(<span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">=</span><span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;プロンプトメッセージ&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clickHandler</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">showMsg</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">=!</span><span style="color:#a6e22e">showMsg</span>.<span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>コンポーネントの呼び出しはかなり面倒に思えます。</p>
+<p>では、コンポーネントをインポートせずにコンポーネントを使用することは可能でしょうか？</p>
+<p>はい、可能です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>&lt;!-- App.vue --&gt;
+</span></span><span style="display:flex;"><span>&lt;script setup&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">- import { ref } from &#39;vue&#39;;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span>import Button from &#34;~/components/Button.vue&#34;;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ import showMsg from &#34;~/commons/showMsg&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span><span style="color:#f92672">- import MessageBox from &#34;~/components/MessageBox.vue&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">- const showMsg=ref(false);
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">- const msg=ref(&#39;ポップアップを表示&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span>const clickHandler = () =&gt; {
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-    showMsg.value=!showMsg.value;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+    showMsg(&#39;ポップアップを表示&#39;,(close)=&gt;{
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    console.log(&#39;OKボタンをクリックした&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    close();
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ })
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>};
+</span></span><span style="display:flex;"><span>&lt;/script&gt;
+</span></span></code></pre></div><p>関数を少し変更してみましょう。</p>
+<p>変更後、開発はより複雑になります。</p>
+<p>ただし、これは<strong>一般的な機能</strong>なので、開発コストをあまり考慮する必要はありません。</p>
+<p>jsファイルで関数を定義します</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// ~/commons/showMsg.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">showMsg</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">showMsg</span>;
+</span></span></code></pre></div><p>この関数は 2 つのパラメータを受け入れます。1 つはメッセージの内容、もう 1 つはイベントです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// ~/commons/showMsg.js
+</span></span><span style="display:flex;"><span><span style="color:#f92672">- function showMsg() {
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+ function showMsg(msg,clickHandler) {
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export default showMsg;
+</span></span></code></pre></div><p>この関数は、<code>MessageBox</code> をレンダリングするために使用されます。</p>
+<p><code>MessageBox.vue</code>ファイルをインポートします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// ~/commons/showMsg.js
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ import Message from &#34;~/components/MessageBox.vue&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>function showMsg(msg,clickHandler) {
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>export default showMsg;
+</span></span></code></pre></div><p>どのようにレンダリングされるのでしょうか？</p>
+<p><code>Vue</code> がどのようにレンダリングされるか見てみましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// main.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createApp</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">App</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span></code></pre></div><p>Vue インスタンスを作成し、コンポーネントを渡して、ページ上のどこかにマウントします。</p>
+<p>だからまたこれをやるんです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// ~/commons/showMsg.js
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ import { createApp } from &#39;vue&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>import Message from &#34;~/components/MessageBox.vue&#34;
+</span></span><span style="display:flex;"><span>function showMsg(msg,clickHandler) {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    // 渲染MessageBox组件
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    const app =createApp(MessageBox);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>}
+</span></span><span style="display:flex;"><span>export default showMsg;
+</span></span></code></pre></div><p>ただし、id が app の div がメイン ページにマウントされているため、これを変更する必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// ~/commons/showMsg.js
+</span></span><span style="display:flex;"><span>import { createApp } from &#39;vue&#39;
+</span></span><span style="display:flex;"><span>import Message from &#34;~/components/MessageBox.vue&#34;
+</span></span><span style="display:flex;"><span>function showMsg(msg,clickHandler) {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    const div =document.createElement(&#39;div&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>   // 渲染MessageBox组件
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    document.body.appendChild(div);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>   const app =createApp(MessageBox);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    app.mount(div);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>}
+</span></span><span style="display:flex;"><span>export default showMsg;
+</span></span></code></pre></div><p>ページを更新すると、ポップアップ ウィンドウが表示されますが、コンテンツがないことがわかります。</p>
+<p>そこで、2つのプロパティを受け入れる必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// ~/commons/showMsg.js
+</span></span><span style="display:flex;"><span>import { createApp } from &#39;vue&#39;
+</span></span><span style="display:flex;"><span>import Message from &#34;~/components/MessageBox.vue&#34;
+</span></span><span style="display:flex;"><span>function showMsg(msg,clickHandler) {
+</span></span><span style="display:flex;"><span>    const div =document.createElement(&#39;div&#39;);
+</span></span><span style="display:flex;"><span>    // 渲染MessageBox组件
+</span></span><span style="display:flex;"><span>    document.body.appendChild(div);
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-    const app =createApp(MessageBox);
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+    const app =createApp(MessageBox,{
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        msg,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        onClick(){
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            clickHandler &amp; clickHandler(()=&gt;{
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                app.unmount();
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                div.remove();
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            });
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        }
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    });
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>    app.mount(div);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>export default showMsg;
+</span></span></code></pre></div><p>完了です。</p>
+<p>これでメソッドを呼び出すことができます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">vue</span> <span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Button</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;~/components/Button.vue&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">showMsg</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;~/commons/showMsg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clickHandler</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">showMsg</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">=!</span><span style="color:#a6e22e">showMsg</span>.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">showMsg</span>(<span style="color:#e6db74">&#39;欲显示的消息&#39;</span>,(<span style="color:#a6e22e">close</span>)=&gt;{
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;点击了确定按钮&#39;</span>);
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>現在、このアプローチは <code>showMsg.js</code> と <code>MessageBox.js</code> という複数のファイルに分割されているため、あまり適していません。</p>
+<p>したがって、それらを 1 つのファイルに結合する必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// ~/commons/showMsg.js
+</span></span><span style="display:flex;"><span>import { createApp } from &#39;vue&#39;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ import Button from &#34;~/components/Button.vue&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span><span style="color:#f92672">- import Message from &#34;~/components/MessageBox.vue&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ const MessageBox = {
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     props: {
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         msg: {
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             type: String,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             required: true,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         },
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     },
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     render(ctx) {
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         const { $props, $emit } = ctx;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         return (
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             &lt;div class=&#34;modal&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                 &lt;div class=&#34;box&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                     &lt;div class=&#34;text&#34;&gt;{$props.msg}&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                     &lt;Button click={$emit(&#39;onClick&#39;)}&gt;&lt;/Button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                 &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             &lt;/div&gt;);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     }
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ }
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>function showMsg(msg,clickHandler) {
+</span></span><span style="display:flex;"><span>    const div =document.createElement(&#39;div&#39;);
+</span></span><span style="display:flex;"><span>    // 渲染MessageBox组件
+</span></span><span style="display:flex;"><span>    document.body.appendChild(div);
+</span></span><span style="display:flex;"><span>    const app =createApp(MessageBox);
+</span></span><span style="display:flex;"><span>    const app =createApp(MessageBox,{
+</span></span><span style="display:flex;"><span>        msg,
+</span></span><span style="display:flex;"><span>        onClick(){
+</span></span><span style="display:flex;"><span>            clickHandler &amp; clickHandler(()=&gt;{
+</span></span><span style="display:flex;"><span>                app.unmount();
+</span></span><span style="display:flex;"><span>                div.remove();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    app.mount(div);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>export default showMsg;
+</span></span></code></pre></div><p>次のステップはスタイルを追加することです。</p>
+<p>ここでは <code>@styils/vue</code> が使用されています</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm instll @styils/vue
+</span></span></code></pre></div><p>导入<code>@styils/vue</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// showMsg.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">styled</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@styils/vue&#34;</span>;
+</span></span></code></pre></div><p>CSSコードの記述</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// showMsg.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DivModal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>(<span style="color:#e6db74">&#39;div&#39;</span>, {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DivBox</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>(<span style="color:#e6db74">&#39;div&#39;</span>, {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DivText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>(<span style="color:#e6db74">&#39;div&#39;</span>, {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><code>-</code> を含むスタイルは camelCase に変換されることに注意してください。</p>
+<p>表示の変更</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>// showMsg.js
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">- return (
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-     &lt;div class=&#34;modal&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-         &lt;div class=&#34;box&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-             &lt;div class=&#34;text&#34;&gt;{$props.msg}&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-             &lt;Button click={$emit(&#39;onClick&#39;)}&gt;&lt;/Button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-         &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-     &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">- );
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+ render(ctx) {
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     const { $props, $emit } = ctx;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     return (
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         &lt;DivModal&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             &lt;DivBox&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                 &lt;DivText&gt;{$props.msg}&lt;/DivText&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                 &lt;Button click={$emit(&#39;onClick&#39;)}&gt;&lt;/Button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+             &lt;/DivBox&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         &lt;/DivModal&gt;);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ }
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>...
+</span></span></code></pre></div><p>最終文書</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// showMsg.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createApp</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Button</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;~/components/Button.vue&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">styled</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@styils/vue&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DivModal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>(<span style="color:#e6db74">&#39;div&#39;</span>, {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DivBox</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>(<span style="color:#e6db74">&#39;div&#39;</span>, {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DivText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>(<span style="color:#e6db74">&#39;div&#39;</span>, {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MessageBox</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">ctx</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">$props</span>, <span style="color:#a6e22e">$emit</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">ctx</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">DivModal</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">DivBox</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">DivText</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">$props</span>.<span style="color:#a6e22e">msg</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/DivText&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Button</span> <span style="color:#a6e22e">click</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">$emit</span>(<span style="color:#e6db74">&#39;onClick&#39;</span>)}<span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/Button&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/DivBox&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/DivModal&gt;);</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">showMsg</span>(<span style="color:#a6e22e">msg</span>, <span style="color:#a6e22e">clickHandler</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">div</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>);
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">div</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">MessageBox</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">msg</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onClick</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">clickHandler</span> <span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">clickHandler</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">unmount</span>(<span style="color:#a6e22e">div</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">remove</span>();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#a6e22e">div</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">showMsg</span>;
+</span></span></code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1763/ja/" >
+    &copy;  MFJipのブログ 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
