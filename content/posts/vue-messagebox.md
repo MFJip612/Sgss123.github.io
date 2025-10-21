@@ -54,7 +54,7 @@ defineProps({
 </template>
 <script setup>
 import { ref } from 'vue';
-import Button from "~/components/Button.vue"；
+import Button from "~/components/Button.vue";
 import MessageBox from "~/components/MessageBox.vue";
 const showMsg=ref(false);
 const msg=ref('提示消息');
@@ -74,7 +74,7 @@ const clickHandler = () => {
 <!-- App.vue -->
 <script setup>
 - import { ref } from 'vue';
-import Button from "~/components/Button.vue"；
+import Button from "~/components/Button.vue";
 + import showMsg from "~/commons/showMsg"
 - import MessageBox from "~/components/MessageBox.vue";
 - const showMsg=ref(false);
@@ -209,7 +209,7 @@ export default showMsg;
 ```vue
 <!-- App.vue -->
 <script setup>
-import Button from "~/components/Button.vue"；
+import Button from "~/components/Button.vue";
 import showMsg from "~/commons/showMsg"
 const clickHandler = () => {
    showMsg.value=!showMsg.value;
@@ -228,7 +228,7 @@ const clickHandler = () => {
 ```diff
 // ~/commons/showMsg.js
 import { createApp } from 'vue'
-+ import Button from "~/components/Button.vue"；
++ import Button from "~/components/Button.vue";
 - import Message from "~/components/MessageBox.vue"
 +
 + const MessageBox = {
@@ -332,7 +332,7 @@ const DivText = styled('div', {
 ```javascript
 // showMsg.js
 import { createApp } from 'vue'
-import Button from "~/components/Button.vue"；
+import Button from "~/components/Button.vue";
 import { styled } from "@styils/vue";
 const DivModal = styled('div', {
     ...
