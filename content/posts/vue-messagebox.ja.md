@@ -152,7 +152,7 @@ Vue インスタンスを作成し、コンポーネントを渡して、ペー�
 + import { createApp } from 'vue'
 import Message from "~/components/MessageBox.vue"
 function showMsg(msg,clickHandler) {
-+    // 渲染MessageBox组件
++    // MessageBoxコンポーネントのレンダリング
 +    const app =createApp(MessageBox);
 }
 export default showMsg;
@@ -166,7 +166,7 @@ import { createApp } from 'vue'
 import Message from "~/components/MessageBox.vue"
 function showMsg(msg,clickHandler) {
 +    const div =document.createElement('div');
-   // 渲染MessageBox组件
+   // MessageBoxコンポーネントのレンダリング
 +    document.body.appendChild(div);
    const app =createApp(MessageBox);
 +    app.mount(div);
@@ -184,7 +184,7 @@ import { createApp } from 'vue'
 import Message from "~/components/MessageBox.vue"
 function showMsg(msg,clickHandler) {
     const div =document.createElement('div');
-    // 渲染MessageBox组件
+    // MessageBoxコンポーネントのレンダリング
     document.body.appendChild(div);
 -    const app =createApp(MessageBox);
 +    const app =createApp(MessageBox,{
@@ -212,8 +212,8 @@ import Button from "~/components/Button.vue";
 import showMsg from "~/commons/showMsg"
 const clickHandler = () => {
    showMsg.value=!showMsg.value;
-   showMsg('欲显示的消息',(close)=>{
-   console.log('点击了确定按钮');
+   showMsg('表示するメッセージ',(close)=>{
+   console.log('OKボタンをクリックした');
    close();
 })
 };
@@ -251,7 +251,7 @@ import { createApp } from 'vue'
 +
 function showMsg(msg,clickHandler) {
     const div =document.createElement('div');
-    // 渲染MessageBox组件
+    // MessageBoxコンポーネントのレンダリング
     document.body.appendChild(div);
     const app =createApp(MessageBox);
     const app =createApp(MessageBox,{
